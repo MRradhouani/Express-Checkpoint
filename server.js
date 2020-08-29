@@ -7,26 +7,26 @@ app.use(express.static('public'));
 
 
 
-// addRequestDate = (req, res, next) => {
-//     let requestAt = new Date()
-//     console.log(requestAt)
-//     next()
-// }
+addRequestDate = (req, res, next) => {
+    let requestAt = new Date()
+    console.log(requestAt)
+    next()
+}
 app.set('view engine', hbs)
 
-app.get('/Home', (req, res) => {
+app.get('/Home',addRequestDate, (req, res) => {
 
     res.render('home.hbs')
 }
 )
 
-app.get('/service', (req, res) => {
+app.get('/service',addRequestDate, (req, res) => {
 
     res.render('service.hbs')
 }
 )
 
-app.get('/contact', (req, res) => {
+app.get('/contact',addRequestDate, (req, res) => {
 
     res.render('contact.hbs' )
 }
